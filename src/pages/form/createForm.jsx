@@ -3,7 +3,7 @@ import Header from '../../components/header';
 import CategorizeQuestion from '../../components/categorizeQuestion';
 import ClozeQuestion from '../../components/clozeQuestion';
 import ComprehensionQuestion from '../../components/comprehensionQuestion';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { addForm } from '../../redux/data/dataActions';
 import { useDispatch } from 'react-redux';
 
@@ -13,7 +13,6 @@ export const CreateForm = (state) => {
     console.log(state)
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    //const [formId, setFormId] = useState('');
     const [questions, setQuestions] = useState([]);
     const [header, setHeader] = useState('');
 
@@ -143,18 +142,6 @@ export const CreateForm = (state) => {
                     Save Form
                 </button>
             </div>
-            {header && questions.length !== 0 ? (
-                <div className='flex justify-center mt-4'>
-                    {/* <Link to={`/preview/?formId=${formId}`} >
-                        <button
-                            className='bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
-                        >
-                            Preview/Fill
-                        </button>
-                    </Link> */}
-                </div>
-            ) : null
-            }
         </div>
 
     );
