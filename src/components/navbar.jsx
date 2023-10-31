@@ -11,7 +11,7 @@ const Navbar = () => {
     const location = useLocation();
     const [nav, setNav] = useState(false);
     const dispatch = useDispatch();
-    const { user } = useSelector((state) => state.auth);
+    const { user, isLoggedIn } = useSelector((state) => state.auth);
     const userName = user?.name || " ";
     const navigate = useNavigate();
 
@@ -37,9 +37,17 @@ const Navbar = () => {
             <ul className='hidden md:flex'>
                 <li className='p-4 border-b border-gray-600 cursor-pointer' onClick={() => navigate("/")}> Home </li>
                 <li className='p-4 border-b border-gray-600 cursor-pointer' onClick={() => navigate("/create")}> Create </li>
-                <li className='p-4 border-b border-gray-600 cursor-pointer'> {`You(${userName})`} </li>
+                {
+                    user && isLoggedIn
+                    ? <li className='p-4 border-b border-gray-600 cursor-pointer'> {`You(${userName})`} </li>
+                    : null
+                }
                 <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={() => dispatch(setMode())}> <RiMoonFill/> </li>
-                <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={logoutUser}> <MdLogout/> </li>
+                {
+                    user && isLoggedIn
+                    ? <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={logoutUser}> <MdLogout/> </li>
+                    : <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={() => navigate("/login")}> Login </li>
+                }                
             </ul>
             <div onClick={handleNav} className='block md:hidden'>
                 {nav ? null : <AiOutlineMenu className='cursor-pointer' size={30} />}
@@ -48,7 +56,11 @@ const Navbar = () => {
                 <li className='p-4 cursor-pointer' onClick={handleNav}> <AiOutlineClose size={32}/> </li>
                 <li className='p-4 cursor-pointer' onClick={() => navigate("/")}> Home </li>
                 <li className='p-4 cursor-pointer' onClick={() => navigate("/create")}> Create </li>
-                <li className='p-4 cursor-pointer' onClick={logoutUser}> Logout </li>
+                {
+                    user && isLoggedIn
+                    ? <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={logoutUser}> <MdLogout/> </li>
+                    : <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={() => navigate("/login")}> Login </li>
+                }  
             </ul>
         </div>
     );
