@@ -59,7 +59,6 @@ const Table = () => {
                                     <td className='h-[60px] text-center'> - </td>
                                     <td className='h-[60px] text-center'> - </td>
                                     <td className='h-[60px] text-center'> - </td>
-                                    <td className='h-[60px] text-center'> - </td>
                                 </tr>
                             </tbody>
                         )
