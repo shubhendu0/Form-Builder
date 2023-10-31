@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getForm, getForms } from '../redux/data/dataActions';
 import { useNavigate } from 'react-router-dom';
 
-
 const Table = () => {
     const [forms, setForms] = useState([]);
     const dispatch = useDispatch();
@@ -12,7 +11,7 @@ const Table = () => {
     
     useEffect(()=>{
         dispatch(getForms());
-    },[dispatch])
+    },[])
 
     useEffect(()=>{
         setForms(data);
