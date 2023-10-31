@@ -46,7 +46,7 @@ const Navbar = () => {
                 {
                     user && isLoggedIn
                     ? <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={logoutUser}> <MdLogout/> </li>
-                    : <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={() => navigate("/login")}> Login </li>
+                    : <li className='p-4 border-b border-gray-600 cursor-pointer'  onClick={() => navigate("/login")}> Login </li>
                 }                
             </ul>
             <div onClick={handleNav} className='block md:hidden'>
@@ -59,7 +59,7 @@ const Navbar = () => {
                 {
                     user && isLoggedIn
                     ? <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={logoutUser}> <MdLogout/> </li>
-                    : <li className='p-5 border-b border-gray-600 cursor-pointer'  onClick={() => navigate("/login")}> Login </li>
+                    : <li className='p-4 border-b border-gray-600 cursor-pointer'  onClick={() => navigate("/login")}> Login </li>
                 }  
             </ul>
         </div>
