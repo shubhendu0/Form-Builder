@@ -1,5 +1,5 @@
-import React, { useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useMemo, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import './tailwind.css';
 import { themeSettings } from './redux/theme/themeSettings';
