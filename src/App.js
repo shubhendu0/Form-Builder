@@ -14,12 +14,21 @@ import axios from "axios";
 import { CreateForm } from './pages/form/createForm';
 import { PreviewForm } from './pages/form/viewForm';
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { getUser } from './redux/auth/authActions';
 
 axios.defaults.withCredentials = true;
 
 function App() {
+  const dispatch = useDispatch();
+  const { user, isLoggedIn} = useSelector((state) => state.auth);
   const mode = useSelector((state) => state.theme.mode);
   const theme = useMemo(() => themeSettings(mode), [mode]);
+
+  useEffect(()=>{
+    if (isLoggedIn && user === null) {
+      dispatch(getUser());
+    } 
+  }, [isLoggedIn, user])
 
   return (
     <div className={theme}>
