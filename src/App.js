@@ -47,9 +47,9 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login/>}/>
             <Route path="/signup" element={<Signup/>} /> 
+            <Route path="/" element={<Home/>}/>
+            <Route path="/create" element={<CreateForm/>}/>
             <Route element={<ProtectedRoute/>}>     
-              <Route path="/" element={<Home/>}/>
-              <Route path="/create" element={<CreateForm/>}/>
               <Route path="/form/:id" element={<PreviewForm/>}/>
             </Route>
           </Routes>   
