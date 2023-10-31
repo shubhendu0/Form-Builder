@@ -18,7 +18,6 @@ const Table = () => {
     },[data])
 
     const handleNavigate = (id) =>{
-        dispatch(getForm(id))
         navigate(`/form/${id}`)
     }
 
